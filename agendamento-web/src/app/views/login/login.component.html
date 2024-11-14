@@ -2,15 +2,9 @@
     <div class="login-container">
         <h2>Login</h2>
         <form (ngSubmit)="login()">
-            <div>
-                <label for="username">Username:</label>
-                <input type="text" id="username" [(ngModel)]="username" name="username" required />
-            </div>
-            <div>
-                <label for="password">Password:</label>
-                <input type="password" id="password" [(ngModel)]="password" name="password" required />
-            </div>
-            <button type="submit">Login</button>
+            <input class="form-control" name="username" [(ngModel)]="username" type="text" placeholder="Nome de Usuario" required="">
+            <input type="password" name="password" [(ngModel)]="password" class="form-control" id="password" placeholder="Senha" required="">
+            <button type="submit" class="btn btn-primary">Login</button>
         </form>
         <p *ngIf="errorMessage" class="error-message">{{ errorMessage }}</p>
 

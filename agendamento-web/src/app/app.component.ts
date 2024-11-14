@@ -3,7 +3,7 @@ import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { HomeComponent } from './views/home/home.component';
 import { LoginComponent } from './views/login/login.component';
-import { HttpClientModule } from '@angular/common/http'; // Importando o HttpClientModule
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
 
 
 @Component({

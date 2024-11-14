@@ -30,6 +30,7 @@ export class LoginComponent {
         next: (response) => {
           console.log(response);
           this.loginService.setToken(response.token);
+          this.loginService.setUsuario(response.nome);
           this.router.navigate(['/home']); 
         },
         error: (err) => {

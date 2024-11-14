@@ -1,0 +1,22 @@
+section {
+    width: 100%;
+    height: calc(100vh - 80px);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+
+    >.transferencia-form{
+        background-color: #A9BCD0;
+        padding: 20px;
+        border-radius: 10px;
+        width: 500px;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        
+    }
+}

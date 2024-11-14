@@ -1,5 +1,8 @@
 <nav class="navbar navbar-dark bg-dark p-3" style="height: 80px;">
-    <a class="navbar-brand">Agendamentos Transferencia</a>
+    <div>
+        <a style="cursor: pointer;" class="navbar-brand" (click)="navegarHome()">Agendamentos Transferencia</a>
+        <a style="cursor: pointer;" class="navbar-brand" (click)="navegarExtrato()">Extrato</a>
+    </div>
     <form class="form-inline">
         <b style="color: white;">{{usuario}} - </b>
         <button class="btn btn-outline-danger my-2 my-sm-0" (click)="logout()" type="button">Logout</button>

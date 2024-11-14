@@ -22,4 +22,12 @@ export class HeaderComponent implements OnInit {
     this.loginService.logout();
     this.router.navigate(['/login']);
   }
+
+  navegarExtrato() {
+    this.router.navigate(['/extrato']);
+  }
+
+  navegarHome() {
+    this.router.navigate(['/home']);
+  }
 }

@@ -1,0 +1,29 @@
+<app-header></app-header>
+<section>
+    <table class="table table-striped p-5">
+        <thead *ngIf="transferencias && transferencias.length > 0">
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Conta Origem</th>
+                <th scope="col">Conta Destino</th>
+                <th scope="col">Valor</th>
+                <th scope="col">Taxa</th>
+                <th scope="col">Dias p/transferência </th>
+            </tr>
+        </thead>
+        <tbody *ngIf="transferencias && transferencias.length > 0">
+            <tr *ngFor="let transf of transferencias;let i = index ">
+                <th scope="row">{{i}}</th>
+                <td>{{transf.contaOrigem}}</td>
+                <td>{{transf.contaDestino}}</td>
+                <td>{{transf.valor | currency: 'BRL': 'symbol':'1.2-2'}}</td>
+                <td>{{transf.taxa | currency: 'BRL': 'symbol':'1.2-2'}}</td>
+                <td>{{transf.diasTransferencia}}</td>
+            </tr>
+        </tbody>
+
+        <h5 class="p-3" style="text-align: center;" *ngIf="!transferencias ||  transferencias.length == 0">Nenhum
+            Registro cadastrado!</h5>
+    </table>
+
+</section>

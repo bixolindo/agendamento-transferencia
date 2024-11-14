@@ -1,5 +1,5 @@
 <app-header></app-header>
-
+<app-toast [message]="toastMessage" [type]="toastType" [isVisible]="isToastVisible"></app-toast>
 <section>
     <div class="p-5" class="transferencia-form">
         <form [formGroup]="agendamentoForm" (ngSubmit)="cadastrarAgendamento()" class="w-100"

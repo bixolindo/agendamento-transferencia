@@ -4,42 +4,59 @@ import { Router } from '@angular/router';
 import { LoginService } from './login.service';
 import { CommonModule } from '@angular/common';
 import { Usuario } from '../../model/usuario';
+import { ToastComponent } from "../../components/toast/toast.component";
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [FormsModule, CommonModule],
+  imports: [FormsModule, CommonModule, ToastComponent],
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent {
   username: string = '';
   password: string = '';
-  errorMessage : string = '';
+  errorMessage: string = '';
+
+  toastMessage: string = '';
+  toastType: string = 'success';
+  isToastVisible: boolean = false;
 
   constructor(private loginService: LoginService, private router: Router) { }
 
   login() {
     if (this.username && this.password) {
-      const body : Usuario = {
+      const body: Usuario = {
         nome: this.username,
         senha: this.password
       }
 
       this.loginService.login(body).subscribe({
         next: (response) => {
-          console.log(response);
-          this.loginService.setToken(response.token);
-          this.loginService.setUsuario(response.nome);
-          this.router.navigate(['/home']); 
+          if (response) {
+            this.loginService.setToken(response.token);
+            this.loginService.setUsuario(response.nome);
+            this.router.navigate(['/home']);
+          } else {
+            this.showToast('Usuário ou senha inválidos.', 'danger');
+          }
         },
         error: (err) => {
-          console.log(err);
-          this.errorMessage = 'Usuário ou senha inválidos';
+          this.showToast(err.error, 'danger');
         }
       });
     } else {
-      this.errorMessage = 'Preencha todos os campos.';
+      this.showToast('Preencha todos os campos.', 'warning');
     }
+  }
+
+  showToast(message: string, type: string) {
+    this.toastMessage = message;
+    this.toastType = type;
+    this.isToastVisible = true;
+
+    setTimeout(() => {
+      this.isToastVisible = false;
+    }, 3000);
   }
 }

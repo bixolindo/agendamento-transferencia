@@ -3,11 +3,13 @@ import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './views/login/login.component';
 import { HomeComponent } from './views/home/home.component';
 import { authGuard } from './guard/auth.guard';
+import { ExtratoComponent } from './views/extrato/extrato.component';
 
 // Definindo as rotas
 export const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' }, 
   { path: 'login', component: LoginComponent }, 
   { path: 'home', component: HomeComponent, canActivate: [authGuard] }, 
+  { path: 'extrato', component: ExtratoComponent, canActivate: [authGuard] }, 
   { path: '**', redirectTo: '/login' } 
 ];

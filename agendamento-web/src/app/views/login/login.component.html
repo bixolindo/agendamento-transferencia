@@ -1,9 +1,13 @@
+<app-toast [message]="toastMessage" [type]="toastType" [isVisible]="isToastVisible"></app-toast>
+
 <div class="main-div">
     <div class="login-container">
         <h2>Login</h2>
         <form (ngSubmit)="login()">
-            <input class="form-control" name="username" [(ngModel)]="username" type="text" placeholder="Nome de Usuario" required="">
-            <input type="password" name="password" [(ngModel)]="password" class="form-control" id="password" placeholder="Senha" required="">
+            <input class="form-control" name="username" [(ngModel)]="username" type="text" placeholder="Nome de Usuario"
+                required="">
+            <input type="password" name="password" [(ngModel)]="password" class="form-control" id="password"
+                placeholder="Senha" required="">
             <button type="submit" class="btn btn-primary">Login</button>
         </form>
         <p *ngIf="errorMessage" class="error-message">{{ errorMessage }}</p>

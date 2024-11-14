@@ -2,5 +2,7 @@ export interface AgendamentoTransferencia {
     contaOrigem: string;
     contaDestino: string;
     valor: number;
-    dataTransferencia: String;
+    taxa?: number;
+    dataTransferencia?: string;
+    diasTransferencia?: number;
 }

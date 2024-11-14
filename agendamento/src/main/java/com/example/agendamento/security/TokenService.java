@@ -47,7 +47,7 @@ public class TokenService {
     public Authentication getAuthentication(String token) {
         DecodedJWT decodedJWT = JWT.decode(token);  
         String username = decodedJWT.getSubject();
-        UserDetails userDetails = repository.findByNome(username);  // Exemplo de uso do UserDetailsService
+        UserDetails userDetails = repository.findByNome(username); 
         return new UsernamePasswordAuthenticationToken(userDetails, null, userDetails.getAuthorities());
     }
 
